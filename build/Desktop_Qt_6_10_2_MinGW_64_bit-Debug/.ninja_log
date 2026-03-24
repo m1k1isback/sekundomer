@@ -1,0 +1,21 @@
+# ninja log v6
+7	81	7958953027333352	C:/Users/User/Desktop/qt/Sekundomer/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/Sekundomer_autogen/mocs_compilation.cpp	7baa615fb1228077
+7	81	7958953027333352	Sekundomer_autogen/timestamp	7baa615fb1228077
+7	81	7958953027333352	Sekundomer_autogen/mocs_compilation.cpp	7baa615fb1228077
+7	81	7958953027333352	C:/Users/User/Desktop/qt/Sekundomer/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/Sekundomer_autogen/timestamp	7baa615fb1228077
+81	2382	7958953028078433	CMakeFiles/Sekundomer.dir/mainwindow.cpp.obj	fe5d3dc93a30fb49
+440	2676	7958952109167911	CMakeFiles/Sekundomer.dir/main.cpp.obj	893a74f9a76da357
+438	2747	7958952109157928	CMakeFiles/Sekundomer.dir/Sekundomer_autogen/mocs_compilation.cpp.obj	838cd32d14b58c5c
+2382	2523	7958953051050499	Sekundomer.exe	8b1c4fffe377f86c
+8	93	7958956152736586	Sekundomer_autogen/timestamp	7baa615fb1228077
+8	93	7958956152736586	Sekundomer_autogen/mocs_compilation.cpp	7baa615fb1228077
+8	93	7958956152736586	C:/Users/User/Desktop/qt/Sekundomer/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/Sekundomer_autogen/timestamp	7baa615fb1228077
+8	93	7958956152736586	C:/Users/User/Desktop/qt/Sekundomer/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/Sekundomer_autogen/mocs_compilation.cpp	7baa615fb1228077
+94	2161	7958956153601810	CMakeFiles/Sekundomer.dir/mainwindow.cpp.obj	fe5d3dc93a30fb49
+2161	2295	7958956174154613	Sekundomer.exe	8b1c4fffe377f86c
+7	94	7958956230275230	Sekundomer_autogen/timestamp	7baa615fb1228077
+7	94	7958956230275230	Sekundomer_autogen/mocs_compilation.cpp	7baa615fb1228077
+7	94	7958956230275230	C:/Users/User/Desktop/qt/Sekundomer/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/Sekundomer_autogen/timestamp	7baa615fb1228077
+7	94	7958956230275230	C:/Users/User/Desktop/qt/Sekundomer/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/Sekundomer_autogen/mocs_compilation.cpp	7baa615fb1228077
+94	2347	7958956231150334	CMakeFiles/Sekundomer.dir/mainwindow.cpp.obj	fe5d3dc93a30fb49
+2347	2475	7958956253624578	Sekundomer.exe	8b1c4fffe377f86c

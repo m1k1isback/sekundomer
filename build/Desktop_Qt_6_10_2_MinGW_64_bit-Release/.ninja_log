@@ -1,0 +1,9 @@
+# ninja log v6
+5	636	7958957562325317	Sekundomer_autogen/timestamp	be72e450a0f5c39a
+5	636	7958957562325317	Sekundomer_autogen/mocs_compilation.cpp	be72e450a0f5c39a
+5	636	7958957562325317	C:/Users/User/Desktop/qt/Sekundomer/build/Desktop_Qt_6_10_2_MinGW_64_bit-Release/Sekundomer_autogen/timestamp	be72e450a0f5c39a
+5	636	7958957562325317	C:/Users/User/Desktop/qt/Sekundomer/build/Desktop_Qt_6_10_2_MinGW_64_bit-Release/Sekundomer_autogen/mocs_compilation.cpp	be72e450a0f5c39a
+642	3121	7958957563005275	CMakeFiles/Sekundomer.dir/main.cpp.obj	964237509c2fcf33
+641	3134	7958957562985281	CMakeFiles/Sekundomer.dir/Sekundomer_autogen/mocs_compilation.cpp.obj	9b77bcbccba7e9b1
+644	3527	7958957563015270	CMakeFiles/Sekundomer.dir/mainwindow.cpp.obj	28d093d534a0a454
+3527	3621	7958957591850011	Sekundomer.exe	8b6ba2c6d58cc87b
