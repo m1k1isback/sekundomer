@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     timer = (new QTimer(this));
     timer->setInterval(10);
 
+    // Для счётчика кругов
     lapCounter = 0;
     lastLapTime = 0;
 
