@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     // Для счётчика кругов
     lapCounter = 0;
     lastLapTime = 0;
+    previousLapTime = 0;
 
     elapsedTime = QTime(0, 0, 0, 0);
     startTime = QTime::currentTime();
@@ -86,6 +87,7 @@ void MainWindow::resetTimer(){
     isRunning = false;
     lapCounter = 0;
     lastLapTime = 0;
+    previousLapTime = 0;
     ui->listWidget->clear();
 
     ui->labelTimer->setText(formatTime(0));
@@ -113,7 +115,17 @@ void MainWindow::lapTime(){
                           .arg(lapCounter)
                           .arg(formatTime(currentLap));
 
-    ui->listWidget->addItem(lapText);
+    QListWidgetItem *item = new QListWidgetItem(lapText);
 
+    if(previousLapTime > 0)
+        if(currentLap < previousLapTime){
+            item->setForeground(QBrush("green"));
+        } else if(currentLap > previousLapTime) {
+            item->setForeground(QBrush(QColor("red")));
+        }
+
+    previousLapTime = currentLap;
+
+    ui->listWidget->addItem(item);
     ui->listWidget->scrollToBottom();
 }

@@ -30,6 +30,7 @@ private:
     int lapCounter;
     QString formatTime(int milliseconds);
     int lastLapTime;
+    int previousLapTime;
 private slots:
     void startTimer();
     void stopTimer();
