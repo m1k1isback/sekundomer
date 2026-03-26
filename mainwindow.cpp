@@ -7,7 +7,16 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    timer = (new QTimer(this));
+    this->setWindowIcon(QIcon(":/img/img/sekundomer.jpg"));
+
+    this->setWindowTitle("Секундомер");
+
+    ui->tabWidget->setTabText(0, "Секундомер");
+    ui->tabWidget->setTabText(1, "Таймер");
+
+    ui->labelCleanTimer->setAlignment(Qt::AlignCenter);
+
+    timer = new QTimer(this);
     timer->setInterval(10);
 
     // Для счётчика кругов
@@ -23,8 +32,17 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButtonStop, SIGNAL(clicked()), this, SLOT(stopTimer()));
     connect(ui->pushButtonReset, SIGNAL(clicked()), this, SLOT(resetTimer()));
     connect(ui->pushButtonLap, SIGNAL(clicked()), this, SLOT(lapTime()));
-
     connect(timer, &QTimer::timeout, this, &MainWindow::updateDisplay);
+
+    countdownTimer = new QTimer(this);
+    countdownTimer->setInterval(100);  // Обновление каждые 100 мс
+    countdownRemaining = 0;
+    countdownTotal = 0;
+    isCountdownRunning = false;
+    connect(ui->pushButtonStartCountdown, SIGNAL(clicked()), this, SLOT(startCountdownFromInput()));
+    connect(ui->pushButtonStopCountdown, SIGNAL(clicked()), this, SLOT(stopCountdown()));
+    connect(ui->pushButtonResetCountdown, SIGNAL(clicked()), this, SLOT(resetCountdown()));
+    connect(countdownTimer, &QTimer::timeout, this, &MainWindow::updateCountdown);
 }
 
 MainWindow::~MainWindow()
@@ -63,7 +81,9 @@ void MainWindow::updateDisplay(){
     if (timeSinceStart < 0) timeSinceStart = 0;
     int totalMsecs = timeSinceStart + elapsedTimeInMsecs;
 
-    ui->labelTimer->setText(formatTime(totalMsecs));
+    QString timeText = formatTime(totalMsecs);
+
+    ui->labelTimer->setText(timeText);
 }
 
 void MainWindow::stopTimer(){
@@ -128,4 +148,60 @@ void MainWindow::lapTime(){
 
     ui->listWidget->addItem(item);
     ui->listWidget->scrollToBottom();
+}
+
+
+
+//--------------таймер----------------
+
+void MainWindow::startCountdownFromInput() {
+    if (isCountdownRunning) {
+        return;
+    }
+
+    // Спинбоксы
+    int hours = ui->spinBoxHours->value();
+    int minutes = ui->spinBoxMinutes->value();
+    int seconds = ui->spinBoxSeconds->value();
+
+    if (hours == 0 && minutes == 0 && seconds == 0) {
+        return;
+    }
+
+    // Конвертация
+    countdownRemaining = (hours * 3600 + minutes * 60 + seconds) * 1000;
+    isCountdownRunning = true;
+
+    countdownTimer->start();
+}
+
+void MainWindow::stopCountdown() {
+    countdownTimer->stop();
+    isCountdownRunning = false;
+}
+
+void MainWindow::resetCountdown() {
+    countdownTimer->stop();
+    countdownRemaining = 0;
+    isCountdownRunning = false;
+
+    ui->labelCleanTimer->setText("00:00:00.000");
+}
+
+void MainWindow::updateCountdown() {
+    if (countdownRemaining > 0) {
+        countdownRemaining -= 100;
+
+        if (countdownRemaining <= 0) {
+            countdownRemaining = 0;
+            countdownTimer->stop();
+            isCountdownRunning = false;
+
+            ui->labelCleanTimer->setStyleSheet(
+                "QLabel { background-color: red; color: white; }"
+                );
+        }
+
+        ui->labelCleanTimer->setText(formatTime(countdownRemaining));
+    }
 }

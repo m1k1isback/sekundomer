@@ -31,11 +31,22 @@ private:
     QString formatTime(int milliseconds);
     int lastLapTime;
     int previousLapTime;
+
+    QTimer *countdownTimer;
+    int countdownRemaining;
+    int countdownTotal;
+    bool isCountdownRunning;
+
 private slots:
     void startTimer();
     void stopTimer();
     void resetTimer();
     void updateDisplay();
     void lapTime();
+
+    void startCountdownFromInput();
+    void stopCountdown();
+    void resetCountdown();
+    void updateCountdown();
 };
 #endif // MAINWINDOW_H
